@@ -1,0 +1,87 @@
+html {
+    font-family: 'IBM Plex Sans', sans-serif;
+    background-color: #161B33;
+    background-image: url("https://images.wallpapersden.com/image/download/iceberg-minimalist_65234_1360x768.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    color: white;
+    padding: 0px;
+    margin: 0px;
+}
+
+form.center {
+    /*background-color: red;*/
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%
+}
+
+input {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 20px;
+    border-radius: 25px;
+}
+
+textarea {
+    font-family: 'IBM Plex Sans', sans-serif;
+    justify-content: center;
+    resize: none;
+    white-space: normal;
+    text-align: justify;
+    -moz-text-align-last: center; /* Firefox 12+ */
+    text-align-last: center;
+    padding: 20px;
+    border-radius: 25px;
+}
+h1 {
+    color: #F1DAC4;
+    display: flex;
+    justify-content: center;
+}
+
+nav {
+    color: #F1DAC4;
+    font-size: 25px;
+}
+nav ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 5px;
+    letter-spacing: 4px;
+    margin: 0 0 3px 0;
+}
+
+a:link,a:visited {
+    color:white;
+    text-decoration: none;
+}
+a:hover {
+    color: #F1DAC4;
+}
+
+ul {
+    list-style: square inside none;
+}
+
+section.center {
+    /*background-color: red;*/
+    background: rgba(16.9, 17.6, 25.9,0.2);
+    backdrop-filter: saturate(180%) blur(8px);
+    flex-direction: column;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 5em;
+    padding: 1em;
+    border-style: solid;
+    border-radius: 25px;
+    border-width: 1px;
+    border-color: black;
+    box-shadow: 5px 10px rgba(0, 0, 0, 0.4);
+
+}

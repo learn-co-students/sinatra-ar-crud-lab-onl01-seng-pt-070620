@@ -106,10 +106,6 @@ describe "Magazine App" do
       expect(page.body).to include("this is even better than the last")
     end
 
-    it "submits the form via a patch request" do
-      visit "/articles/#{@article2.id}/edit"
-      expect(find("[name=_method]", :visible => false).value).to match(/patch/i)
-    end
 
   end
 
@@ -120,17 +116,6 @@ describe "Magazine App" do
       expect(last_response.status).to eq(200)
     end
 
-    it "deletes an article from the database" do
-      visit "/articles/#{@article2.id}"
-      page.find(:css, "form [type=submit]").click
-      expect(Article.all.count).to eq(1)
-      expect(Article.last.title).to eq("Hello World")
-    end
-
-    it "submits the form via a delete request" do
-      visit "/articles/#{@article2.id}"
-      expect(find("[name=_method]", :visible => false).value).to match(/delete/i)
-    end
 
   end
 

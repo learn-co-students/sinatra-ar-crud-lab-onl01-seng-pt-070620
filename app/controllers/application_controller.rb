@@ -14,12 +14,12 @@ class ApplicationController < Sinatra::Base
   end 
 
   post '/articles' do 
-    # binding.pry
+ 
     # user_input = params[:user_input]
-
-    @article = Article.new(params)
-
-    redirect '/articles/new'
+   
+    @article = Article.create(title: params[:title], content: params[:content])
+   
+    redirect '/articles/#{@article.id}'
   end 
 
   # read as CURD actions 

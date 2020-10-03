@@ -8,31 +8,49 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
   end
 
-  # create as CURD actions
+  # create action
   get '/articles/new' do
     erb :new
   end 
 
   post '/articles' do 
- 
-    # user_input = params[:user_input]
-   
     @article = Article.create(title: params[:title], content: params[:content])
-   
-    redirect '/articles/#{@article.id}'
+    redirect "/articles/#{@article.id}"
   end 
 
-  # read as CURD actions 
+  # read action
   get '/articles' do
-    # @articles = Article.all
     erb :index
   end
-
+ 
   get '/articles/:id' do 
-    @article = Article.find_by[:id]
+    @article = Article.find_by(id: params[:id])
     erb :show
   end 
 
+  # update action
+  get "/articles/:id/edit" do 
+    erb :edit
+  end
 
+  patch "/articles/:id/edit" do
+    @article = Article.find(params[:id])
+    @article.update(params[:article])
+    redirect "/articles/#{@article.id}/edit"
+  end 
+
+  # delete action
+  get '/articles/:id' do
+    erb :show
+  end 
+
+  post '/articles/:id' do
+    erb :show
+  end 
+
+  delete '/article/:id' do
+    @article = Article.delete(params[:id])
+    redirect '/articles'
+  end 
 
 end

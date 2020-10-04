@@ -14,7 +14,6 @@ class ApplicationController < Sinatra::Base
   end
 
    get '/articles/new' do #loads new form
-
     erb :new
    end
 
@@ -48,17 +47,13 @@ class ApplicationController < Sinatra::Base
     redirect to "/articles/#{@article.id}"
   end
 
-  get '/articles/:id/delete' do 
-    erb :delete
-  end
-
-
-
-  post '/articles/:id/delete' do #delete action
+  delete '/articles/:id' do
     @article = Article.find_by_id(params[:id])
     @article.delete
     redirect to '/articles'
+    erb :show
   end
+
     
   
   

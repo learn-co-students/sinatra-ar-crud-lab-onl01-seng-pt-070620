@@ -9,6 +9,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
+    @articles = Article.all
     erb :index
   end
 
@@ -31,7 +32,7 @@ class ApplicationController < Sinatra::Base
   
   post '/articles' do  #creates a article
     @article = Article.create(params)
-    
+    redirect to "/articles/#{@article.id}"
   end 
 
   get '/articles/:id/edit' do #loads edit form
@@ -44,6 +45,7 @@ class ApplicationController < Sinatra::Base
     @article.name = params[:title]
     @article.content = params[:content]
     @article.save
+    redirect to "/articles/#{@article.id}"
   end
 
   get '/articles/:id/delete' do 

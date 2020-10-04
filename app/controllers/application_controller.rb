@@ -17,26 +17,29 @@ class ApplicationController < Sinatra::Base
     erb :new
    end
 
-   post '/articles' do  #creates a article
-    @article = Article.create(params)
-  end 
-
   get '/articles' do #loads index page
     @articles = Article.all
     erb :index
   end
+  
+
 
   get '/articles/:id' do  #loads show page
     @article = Article.find_by_id(params[:id])
     erb :show
   end
+  
+  post '/articles' do  #creates a article
+    @article = Article.create(params)
+    
+  end 
 
   get '/articles/:id/edit' do #loads edit form
     @article = Article.find_by_id(params[:id])
     erb :edit
   end
 
-  post '/articles/:id' do  #updates a article
+  patch '/articles/:id' do  #updates a article
     @article = Article.find_by_id(params[:id])
     @article.name = params[:title]
     @article.content = params[:content]
